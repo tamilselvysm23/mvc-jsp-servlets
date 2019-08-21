@@ -17,7 +17,11 @@ public class TestController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 //		get the request dispatcher
-		RequestDispatcher dispatcher= request.getRequestDispatcher("test.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("view.jsp");
+//		get the data from model by calling getData method of model class
+		String data= TestModel.getData();
+//		set the data to request obj
+		request.setAttribute("data", data);
 //		Forward the request and response
 		dispatcher.forward(request, response);
 	}
